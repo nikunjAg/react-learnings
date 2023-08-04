@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import StatusToggler from './pages/Online-Offline';
+import Timer from './pages/Timer';
+import { init } from './pages/Timeouts/clearAll';
+import { useEffect } from 'react';
 
 function App() {
+
+  const finishHandler = () => {
+    console.log("Finished");
+  }
+
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Timer duration={1000 * 3} onFinish={finishHandler} />
+      <StatusToggler users={['A', 'B', 'C']}  />
     </div>
   );
 }
