@@ -7,3 +7,18 @@
 html {
   font-family: 'Public Sans', sans-serif;
 }
+
+
+button {
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  background-color: #ccc;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+button:hover {
+  background-color: #aaa;
+}
