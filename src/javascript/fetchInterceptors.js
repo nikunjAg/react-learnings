@@ -47,7 +47,7 @@ window.resInterceptor = async function(response) {
  * @param  {...any} args - Arguments for the Javascript fetch function 
  * @returns {Promise} - Returns the result of the fetch call inside a promise
  */
-window.fetch = async function(...args) {
+const customFetch = async function(...args) {
     
     const updatedArgs = await window.reqInterceptor(...args);
 
@@ -58,16 +58,18 @@ window.fetch = async function(...args) {
 };
 
 // 200
-window.fetch('https://jsonplaceholder.typicode.com/todos/1')
+customFetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(console.log)
     .catch(console.dir);
 
 // 404
-// window.fetch('https://jsonplaceholder.typicode.com/tooos/1')
+// customFetch('https://jsonplaceholder.typicode.com/tooos/1')
 //     .then(console.log)
 //     .catch(console.dir);
 
 // Failure
-// window.fetch('https://jsonplacehol.typicode.com/tooos/1')
+// customFetch('https://jsonplacehol.typicode.com/tooos/1')
 //     .then(console.log)
 //     .catch(console.dir);
+
+export default customFetch;
